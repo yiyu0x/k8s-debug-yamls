@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: netutils
+spec:
+  selector:
+    matchLabels:
+      name: netutils
+  template:
+    metadata:
+      labels:
+        name: netutils
+    spec:
+      containers:
+        - image: hwchiu/netutils
+          name: netutils
+          
