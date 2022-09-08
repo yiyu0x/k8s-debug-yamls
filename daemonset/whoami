@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: whoami
+spec:
+  selector:
+    matchLabels:
+      name: whoami
+  template:
+    metadata:
+      labels:
+        name: whoami
+    spec:
+      containers:
+        - image: traefik/whoami
+          name: whoami
+          ports:
+          - containerPort: 80
