@@ -1,0 +1,45 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: kelly-2022
+  region: ap-northeast-1
+
+addons:
+  - name: vpc-cni
+
+iam:
+  withOIDC: true
+
+nodeGroups:
+  - name: t3-medium
+    instanceType: t3.small
+    desiredCapacity: 3
+    minSize: 0
+    maxSize: 5
+    volumeSize: 80
+    ssh:
+      allow: true
+    privateNetworking: false
+
+
+vpc:
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: false
+  subnets:
+    private:
+      ap-northeast-1a: { id: <subnet-id> }
+      ap-northeast-1c: { id: <subnet-id> }
+      ap-northeast-1d: { id: <subnet-id> }
+    public:
+      ap-northeast-1a: { id: <subnet-id> }
+      ap-northeast-1c: { id: <subnet-id> }
+      ap-northeast-1d: { id: <subnet-id> }
+
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+    logRetentionInDays: 60
+    
