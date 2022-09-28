@@ -11,7 +11,7 @@ addons:
 iam:
   withOIDC: true
 
-nodeGroups:
+managedNodeGroups:
   - name: t3-medium
     instanceType: t3.small
     desiredCapacity: 3
