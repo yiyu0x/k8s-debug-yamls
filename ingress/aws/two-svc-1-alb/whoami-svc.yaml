@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-a
+  labels:
+    app: whoami-Aku
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: whoami-A
+    
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-b
+  labels:
+    app: whoami-B
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: whoami-B
+

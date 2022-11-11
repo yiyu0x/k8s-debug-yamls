@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami-a
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whoami-A
+  template:
+    metadata:
+      labels:
+        app: whoami-A
+    spec:
+      containers:
+      - name: whoami
+        image: traefik/whoami
+        ports:
+        - containerPort: 80
+          
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whoami-B
+  template:
+    metadata:
+      labels:
+        app: whoami-B
+    spec:
+      containers:
+      - name: whoami
+        image: traefik/whoami
+        ports:
+        - containerPort: 80
+          
