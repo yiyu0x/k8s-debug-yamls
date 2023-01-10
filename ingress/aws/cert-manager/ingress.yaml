@@ -1,21 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: example-ingess
+  name: testing
   namespace: cert-manager
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: instance
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-    cert-manager.io/cluster-issuer: letsencrypt
+    #alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    #cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
   - hosts:
-    - example.com
-    secretName: XXX
+    - myhost
+    #secretName: letsencrypt
   rules:
-  - host: example.com
+  - host: myhost
     http:
       paths:
       - path: /

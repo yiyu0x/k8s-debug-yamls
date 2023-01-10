@@ -7,6 +7,10 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
+    
+    
+
+
 spec:
   ingressClassName: alb
   rules:

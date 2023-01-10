@@ -9,5 +9,5 @@ spec:
     name: letsencrypt
     kind: ClusterIssuer
   dnsNames:
-    - 'example.com'
-  commonName: 'example.com'
+    - 'domain'
+  commonName: 'domain'
