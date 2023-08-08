@@ -9,5 +9,8 @@ spec:
         - "3600"
       image: hwchiu/netutils
       name: netutils
-
+  dnsPolicy: ClusterFirst
+  dnsConfig:
+    nameservers: 
+      - "10.0.0.2"
 # Imperative way kubectl run hwchiu-pod --rm -it --image hwchiu/netutils -- /bin/bash

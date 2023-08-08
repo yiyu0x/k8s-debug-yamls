@@ -11,6 +11,7 @@ spec:
       labels:
         name: netutils
     spec:
+      hostNetwork: true
       containers:
         - image: hwchiu/netutils
           name: netutils
